@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "1A9VycGdhlM=",
+  "dgSpecHash": "YUaMdxt3z7I=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
+  "projectFilePath": "C:\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Antonio\\.nuget\\packages\\avalonia\\11.1.0\\avalonia.11.1.0.nupkg.sha512",
     "C:\\Users\\Antonio\\.nuget\\packages\\avalonia.angle.windows.natives\\2.1.22045.20230930\\avalonia.angle.windows.natives.2.1.22045.20230930.nupkg.sha512",
@@ -34,7 +34,16 @@
     "C:\\Users\\Antonio\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.8\\skiasharp.nativeassets.win32.2.88.8.nupkg.sha512",
     "C:\\Users\\Antonio\\.nuget\\packages\\system.io.pipelines\\6.0.0\\system.io.pipelines.6.0.0.nupkg.sha512",
     "C:\\Users\\Antonio\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
-    "C:\\Users\\Antonio\\.nuget\\packages\\tmds.dbus.protocol\\0.16.0\\tmds.dbus.protocol.0.16.0.nupkg.sha512"
+    "C:\\Users\\Antonio\\.nuget\\packages\\tmds.dbus.protocol\\0.16.0\\tmds.dbus.protocol.0.16.0.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.netcore.app.runtime.win-x64\\8.0.8\\microsoft.netcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.netcore.app.runtime.linux-x64\\8.0.8\\microsoft.netcore.app.runtime.linux-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.netcore.app.runtime.osx-x64\\8.0.8\\microsoft.netcore.app.runtime.osx-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.windowsdesktop.app.runtime.win-x64\\8.0.8\\microsoft.windowsdesktop.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.win-x64\\8.0.8\\microsoft.aspnetcore.app.runtime.win-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.linux-x64\\8.0.8\\microsoft.aspnetcore.app.runtime.linux-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.aspnetcore.app.runtime.osx-x64\\8.0.8\\microsoft.aspnetcore.app.runtime.osx-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.netcore.app.host.linux-x64\\8.0.8\\microsoft.netcore.app.host.linux-x64.8.0.8.nupkg.sha512",
+    "C:\\Users\\Antonio\\.nuget\\packages\\microsoft.netcore.app.host.osx-x64\\8.0.8\\microsoft.netcore.app.host.osx-x64.8.0.8.nupkg.sha512"
   ],
   "logs": []
 }

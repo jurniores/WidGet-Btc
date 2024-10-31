@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj": {}
+    "C:\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj": {
+    "C:\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
+        "projectUniqueName": "C:\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
         "projectName": "WidgetBtc",
-        "projectPath": "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
+        "projectPath": "C:\\WidGet Btc\\WidgetBtc\\WidgetBtc.csproj",
         "packagesPath": "C:\\Users\\Antonio\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Antonio\\Desktop\\WidGet Btc\\WidgetBtc\\obj\\",
+        "outputPath": "C:\\WidGet Btc\\WidgetBtc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -86,12 +86,61 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.osx-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.osx-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.linux-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.osx-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "linux-x64": {
+          "#import": []
+        },
+        "osx-x64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
         }
       }
     }
