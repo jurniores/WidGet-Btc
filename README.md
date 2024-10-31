@@ -1,6 +1,6 @@
-# Project Name
+# WidGet-BTC
 
-This project is designed to [brief description of the project]. Follow the steps below to set it up and run it on your local machine.
+This project is designed to [monitors the exchange rate of the Dollar, the Real, and the value of the Dollar in Reais]. Follow the steps below to set it up and run it on your local machine.
 
 ## Getting Started
 
