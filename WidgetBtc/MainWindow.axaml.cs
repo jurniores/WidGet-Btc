@@ -1,13 +1,9 @@
 using System;
-using System.Collections.Generic;
-using System.Reflection;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using Avalonia.Platform;
-using Avalonia.Threading;
 using Controller;
 
 namespace WidgetBtc;
@@ -23,7 +19,7 @@ public partial class MainWindow : Window
         Position = new PixelPoint(1020, 0);
         var coroutine = new Coroutine(time, GetMethod);
         coroutine.Start();
-        Opened += (sender, e) => HideFromAltTab();
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))  Opened += (sender, e) => HideFromAltTab();
     }
     void Refresh(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
@@ -85,6 +81,7 @@ public partial class MainWindow : Window
     private const uint WS_EX_APPWINDOW = 0x00040000;   // Janela de aplicativo (aparece no Alt + Tab)
     public void CloseApp_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        
         Close();  // Fecha a janela
     }
     private void OnPointerEntered(object? sender, PointerEventArgs e)
