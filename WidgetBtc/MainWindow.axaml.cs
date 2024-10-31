@@ -62,7 +62,7 @@ public partial class MainWindow : Window
         btc_real.Text = $"R$ {valBtcReal:N0}";
         btc_real_max_min.Text = $"Max: {valBtcRealMax:N0} Min: {valBtcRealMin:N0}";
 
-        dolar_real.Text = $"R$ {valDolarReal}";
+        dolar_real.Text = $"Dolar: {valDolarReal}R$";
         bounce = false;
     }
 
