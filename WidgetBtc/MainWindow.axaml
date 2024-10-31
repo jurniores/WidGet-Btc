@@ -1,0 +1,115 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="200"
+        ExtendClientAreaToDecorationsHint="True"
+        ExtendClientAreaTitleBarHeightHint="0"
+        ExtendClientAreaChromeHints="NoChrome"
+        Background="Transparent"
+        Icon="Assets/btc.ico"
+        Height="200"
+        Width="300"
+        x:Class="WidgetBtc.MainWindow"
+        Title="WidgetBtc"
+        PointerEntered="OnPointerEntered"
+        PointerExited="OnPointerExited">
+        <Grid>
+                
+        <!-- Envolve toda a janela em um Border para aplicar bordas arredondadas -->
+        <Border CornerRadius="10"
+                BorderBrush="Transparent"
+                ClipToBounds="True">
+            <!-- Imagem de fundo -->
+            <Image Source="Assets/btcprice.png"
+                   Stretch="UniformToFill" />
+        </Border>
+       
+        <!-- Área que permite mover a janela -->
+        <Border Background="Transparent"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                PointerPressed="OnPointerPressed"
+               >
+        </Border>
+        <StackPanel VerticalAlignment="Top">
+                <Button x:Name="button_close" IsVisible="False" Click="CloseApp_Click" Margin="2" HorizontalAlignment="Right" Padding="4,0,4,0" VerticalAlignment="Top" Background="Red" Foreground="White">
+                        X
+                </Button>
+        </StackPanel>
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Center" Width="300">
+                
+                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                        <Grid>
+                                <!-- Define duas colunas no Grid -->
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />  <!-- Para a imagem -->
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                   <!-- Para o texto ocupar o restante -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Imagem alinhada à esquerda -->
+                                <Image Source="Assets/btc.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+                                <!-- Texto centralizado -->
+                                <TextBlock  x:Name="btc_dolar" Text="$ 71.00" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_dolar_max_min" Text="Max 4100 Min 4105.0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                               
+                        </Grid>
+                </Border>
+                 <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                        <Grid>
+                                <!-- Define duas colunas no Grid -->
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />  <!-- Para a imagem -->
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                   <!-- Para o texto ocupar o restante -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Imagem alinhada à esquerda -->
+                                <Image Source="Assets/btc.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+                                <!-- Texto centralizado -->
+                                <TextBlock  x:Name="btc_real" Text="R$ 415.00 " Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_real_max_min" Text="Max: 410.00 Min: 4105.00" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                               
+                        </Grid>
+                </Border>
+                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                        <Grid>
+                                <!-- Define duas colunas no Grid -->
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />  <!-- Para a imagem -->
+                                <ColumnDefinition Width="*" />
+                                
+                                   <!-- Para o texto ocupar o restante -->
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Imagem alinhada à esquerda -->
+                                <Image Source="Assets/money.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
+
+                                <!-- Texto centralizado -->
+                                <TextBlock  x:Name="dolar_real" Text="Dolar: 5.71R$" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                
+                               
+                        </Grid>
+                </Border>
+                 
+         
+                
+                
+                
+                
+        
+        <Button Click="Refresh" Margin="5" HorizontalAlignment="Center"  Foreground="White" Background="#e7b216">Refresh</Button>
+        </StackPanel>
+
+        <!-- Outros elementos da UI -->
+        
+    </Grid>
+       
+       
+
+</Window>
