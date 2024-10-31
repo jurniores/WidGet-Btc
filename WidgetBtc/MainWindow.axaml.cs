@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Media;
 using Avalonia.Platform;
 using Avalonia.Threading;
 using Controller;
@@ -14,6 +15,7 @@ namespace WidgetBtc;
 public partial class MainWindow : Window
 {
     private int time = 60000;
+    private bool bounce = false;
     public MainWindow()
     {
         InitializeComponent();
@@ -25,10 +27,13 @@ public partial class MainWindow : Window
     }
     void Refresh(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
+        if(bounce) return;
+        bounce = true;
         GetMethod();  // Fecha a janela
     }
     private async void GetMethod()
     {
+
         var fetch = new Fetch("https://economia.awesomeapi.com.br", this);
         var btcUsd = await fetch.Get<Coin>("/json/last/BTC-USD");
         var btcBrl = await fetch.Get<Coin>("/json/last/BTC-BRL");
@@ -43,6 +48,17 @@ public partial class MainWindow : Window
         int valBtcRealMax = int.Parse(btcBrl?.BTCBRL?.high ?? "0");
 
         string valDolarReal = usdBrl?.USDBRL?.bid ?? "";
+        if (valBtcDolar > valBtcDolarMin)
+        {
+            var color = Color.Parse("#76fb8d");
+            btc_dolar.Foreground = new SolidColorBrush(color);
+            btc_real.Foreground = new SolidColorBrush(color);
+        }
+        else
+        {
+            btc_dolar.Foreground = new SolidColorBrush(Colors.Red);
+            btc_real.Foreground = new SolidColorBrush(Colors.Red);
+        }
 
         btc_dolar.Text = $"$ {valBtcDolar:N0}";
         btc_dolar_max_min.Text = $"Max: {valBtcDolarMax:N0} Min: {valBtcDolarMin:N0}";
@@ -51,6 +67,7 @@ public partial class MainWindow : Window
         btc_real_max_min.Text = $"Max: {valBtcRealMax:N0} Min: {valBtcRealMin:N0}";
 
         dolar_real.Text = $"R$ {valDolarReal}";
+        bounce = false;
     }
 
 
