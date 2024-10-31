@@ -7,4 +7,25 @@
     <Application.Styles>
         <FluentTheme />
     </Application.Styles>
+   <TrayIcon.Icons>
+    <TrayIcons>
+      <TrayIcon Icon="Assets/btc.ico" ToolTipText="Widget Btc" Clicked="Maximize">
+        <TrayIcon.Menu>
+          <NativeMenu>
+            <NativeMenuItem Header="Settings">
+              <NativeMenu >
+                <NativeMenuItem Header="BTC Dolar" ToggleType="Radio" />
+                <NativeMenuItem Header="BTC Real" ToggleType="Radio"  />
+                <NativeMenuItemSeparator />
+                <NativeMenuItem Header="Dolar" ToggleType="Radio"  />
+                <NativeMenuItem Icon="Assets/btc.ico" ToggleType="Radio" Header="Restore Defaults" />
+              </NativeMenu>
+            </NativeMenuItem>
+            <NativeMenuItem Header="Exit" Click="Exit"/>
+          </NativeMenu>
+        </TrayIcon.Menu>
+      </TrayIcon>
+    </TrayIcons>
+  </TrayIcon.Icons>
+    
 </Application>
