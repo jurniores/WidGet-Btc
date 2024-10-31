@@ -30,9 +30,9 @@ namespace Controller
 
                 return json ?? null;
             }
-            catch
+            catch(Exception e)
             {
-                application.Close();
+                Console.WriteLine(e);
 
             }
             return null;
@@ -52,9 +52,9 @@ namespace Controller
 
                 return json;
             }
-            catch
+            catch(Exception e)
             {
-                application.Close();
+                Console.WriteLine(e);
 
             }
             return default;
@@ -70,9 +70,9 @@ namespace Controller
 
                 return content;
             }
-            catch
+            catch(Exception e)
             {
-                application.Close();
+                Console.WriteLine(e);
 
             }
             return null;

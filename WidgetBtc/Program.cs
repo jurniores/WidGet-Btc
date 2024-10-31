@@ -28,7 +28,7 @@ class Program
         BuildAvaloniaApp()
           .StartWithClassicDesktopLifetime(args);
         GC.KeepAlive(_mutex);
-
+    
     }
     // Avalonia configuration, don't remove; also used by visual designer.
     public static AppBuilder BuildAvaloniaApp()

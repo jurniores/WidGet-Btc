@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WidgetBtc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2c0232d5025b2eb3bd0db1d493449889f82f45e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b10de4e6d0677dbbb1677539ad248fff73fa3aa7")]
 [assembly: System.Reflection.AssemblyProductAttribute("WidgetBtc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WidgetBtc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
