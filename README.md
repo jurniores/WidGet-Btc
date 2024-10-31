@@ -1,4 +1,4 @@
-# Project Name
+# WidGet-BTC
 
 This project is designed to [brief description of the project]. Follow the steps below to set it up and run it on your local machine.
 
