@@ -21,11 +21,11 @@ public partial class MainWindow : Window
         Position = new PixelPoint(1020, 0);
         var coroutine = new Coroutine(time, GetMethod);
         coroutine.Start();
-        //Opened += (sender, e) => HideFromAltTab();
+        Opened += (sender, e) => HideFromAltTab();
     }
     void Refresh(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-       GetMethod();  // Fecha a janela
+        GetMethod();  // Fecha a janela
     }
     private async void GetMethod()
     {
@@ -33,11 +33,24 @@ public partial class MainWindow : Window
         var btcUsd = await fetch.Get<Coin>("/json/last/BTC-USD");
         var btcBrl = await fetch.Get<Coin>("/json/last/BTC-BRL");
         var usdBrl = await fetch.Get<Coin>("/json/last/USD-BRL");
-    
-        
-        btc_dolar.Text = $"$ {btcUsd?.BTCUSD?.bid}";
-        btc_real.Text = $"$ {btcBrl?.BTCBRL?.bid}";
-        dolar_real.Text = $"$ {usdBrl?.USDBRL?.bid}";
+
+        int valBtcDolar = int.Parse(btcUsd?.BTCUSD?.bid ?? "0");
+        int valBtcDolarMin = int.Parse(btcUsd?.BTCUSD?.low ?? "0");
+        int valBtcDolarMax = int.Parse(btcUsd?.BTCUSD?.high ?? "0");
+
+        int valBtcReal = int.Parse(btcBrl?.BTCBRL?.bid ?? "0");
+        int valBtcRealMin = int.Parse(btcBrl?.BTCBRL?.low ?? "0");
+        int valBtcRealMax = int.Parse(btcBrl?.BTCBRL?.high ?? "0");
+
+        string valDolarReal = usdBrl?.USDBRL?.bid ?? "";
+
+        btc_dolar.Text = $"$ {valBtcDolar:N0}";
+        btc_dolar_max_min.Text = $"Max: {valBtcDolarMax:N0} Min: {valBtcDolarMin:N0}";
+
+        btc_real.Text = $"R$ {valBtcReal:N0}";
+        btc_real_max_min.Text = $"Max: {valBtcRealMax:N0} Min: {valBtcRealMin:N0}";
+
+        dolar_real.Text = $"R$ {valDolarReal}";
     }
 
 

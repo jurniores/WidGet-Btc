@@ -66,3 +66,4 @@ c:\Users\Antonio\Desktop\WidGet Btc\WidgetBtc\obj\Debug\net8.0\WidgetBtc.csproj.
 c:\Users\Antonio\Desktop\WidGet Btc\WidgetBtc\obj\Debug\net8.0\WidgetBtc.genruntimeconfig.cache
 c:\Users\Antonio\Desktop\WidGet Btc\WidgetBtc\obj\Debug\net8.0\ref\WidgetBtc.dll
 C:\Users\Antonio\Desktop\WidGet Btc\WidgetBtc\bin\Debug\net8.0\RestSharp.dll
+C:\Users\Antonio\Desktop\WidGet Btc\WidgetBtc\obj\Debug\net8.0\WidgetBtc.sourcelink.json
