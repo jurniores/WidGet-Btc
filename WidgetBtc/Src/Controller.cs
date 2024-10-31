@@ -24,7 +24,6 @@ namespace Controller
                 var request = new RestRequest(route, Method.Get);
 
                 var response = await client.ExecuteAsync(request);
-                Console.WriteLine(response.Content);
                 string? jsonString = response.Content;
                 List<T>? json = JsonSerializer.Deserialize<List<T>>(jsonString ?? "");
 

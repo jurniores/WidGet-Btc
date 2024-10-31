@@ -2,14 +2,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="200"
+        mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="220"
         ExtendClientAreaToDecorationsHint="True"
         ExtendClientAreaTitleBarHeightHint="0"
         ExtendClientAreaChromeHints="NoChrome"
         Background="Transparent"
         Icon="Assets/btc.ico"
-        Height="200"
-        Width="300"
+        Height="220"
+        Width="310"
         x:Class="WidgetBtc.MainWindow"
         Title="WidgetBtc"
         PointerEntered="OnPointerEntered"
@@ -22,7 +22,7 @@
                 ClipToBounds="True">
             <!-- Imagem de fundo -->
             <Image Source="Assets/btcprice.png"
-                   Stretch="UniformToFill" />
+                   Stretch="Fill" />
         </Border>
        
         <!-- Área que permite mover a janela -->
@@ -33,12 +33,44 @@
                >
         </Border>
         <StackPanel VerticalAlignment="Top">
-                <Button x:Name="button_close" IsVisible="False" Click="CloseApp_Click" Margin="2" HorizontalAlignment="Right" Padding="4,0,4,0" VerticalAlignment="Top" Background="Red" Foreground="White">
+                <Button x:Name="button_close" IsVisible="False" Click="CloseApp_Click" HorizontalAlignment="Right" Padding="5,0,5,0" VerticalAlignment="Top" Background="Red" Foreground="White">
                         X
                 </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" Margin="0,45,0,0" VerticalAlignment="Center" Width="300">
-                
+        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Center" Width="300">
+                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                        <Grid>
+                                <!-- Define duas colunas no Grid -->
+                                <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />  <!-- Para a imagem -->
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                   <!-- Para o texto ocupar o restante -->
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <!-- Imagem alinhada à esquerda -->
+                                
+
+                                <!-- Texto centralizado -->
+                                
+                                
+
+                                <TextBlock  Text="LastDay Dolar" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca"/>
+                                <TextBlock  Text="LastDay Real" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca" />
+                                
+                                <TextBlock x:Name="btc_dolar_max_day_last" Text="7500$" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                                <TextBlock x:Name="btc_real_max_day_last" Text="7500R$" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                               
+                               
+                                
+                                
+                               
+                        </Grid>
+                </Border>
                 <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
                         <Grid>
                                 <!-- Define duas colunas no Grid -->
@@ -53,8 +85,8 @@
                                 <Image Source="Assets/btc.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
                                 <!-- Texto centralizado -->
-                                <TextBlock  x:Name="btc_dolar" Text="$ 71.00" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
-                                <TextBlock  x:Name="btc_dolar_max_min" Text="Max 4100 Min 4105.0" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_dolar" Text="" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_dolar_max_min" Text="" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
                                
                         </Grid>
                 </Border>
@@ -72,8 +104,8 @@
                                 <Image Source="Assets/btc.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
                                 <!-- Texto centralizado -->
-                                <TextBlock  x:Name="btc_real" Text="R$ 415.00 " Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
-                                <TextBlock  x:Name="btc_real_max_min" Text="Max: 410.00 Min: 4105.00" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_real" Text="" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="btc_real_max_min" Text="" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
                                
                         </Grid>
                 </Border>
@@ -91,13 +123,13 @@
                                 <Image Source="Assets/money.png" Width="20" Height="20" Margin="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Left" />
 
                                 <!-- Texto centralizado -->
-                                <TextBlock  x:Name="dolar_real" Text="Dolar: 5.71R$" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
+                                <TextBlock  x:Name="dolar_real" Text="" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" />
                                 
                                
                         </Grid>
                 </Border>
                  
-         
+                
                 
                 
                 

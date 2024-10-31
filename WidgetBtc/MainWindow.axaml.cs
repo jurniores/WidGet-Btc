@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
@@ -12,28 +13,46 @@ public partial class MainWindow : Window
 {
     private int time = 60000;
     private bool bounce = false;
+    Fetch fetch;
+    List<Coin.Money>? listUsd, listBrl;
     public MainWindow()
     {
         InitializeComponent();
         CanResize = false;
+
         Position = new PixelPoint(1020, 0);
+
+        fetch = new Fetch("https://economia.awesomeapi.com.br", this);
+
         var coroutine = new Coroutine(time, GetMethod);
         coroutine.Start();
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))  Opened += (sender, e) => HideFromAltTab();
+
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Opened += (sender, e) => HideFromAltTab();
+
     }
     void Refresh(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        if(bounce) return;
+        if (bounce) return;
         bounce = true;
         GetMethod();  // Fecha a janela
     }
     private async void GetMethod()
     {
 
-        var fetch = new Fetch("https://economia.awesomeapi.com.br", this);
+
+        listUsd ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-USD/2");
+        listBrl ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-BRL/2");
+
+        int dolarLastDay = int.Parse(listBrl?[1].bid ?? "0");
+        int realLastDay = int.Parse(listUsd?[1].bid ?? "0");
+
+
+
         var btcUsd = await fetch.Get<Coin>("/json/last/BTC-USD");
         var btcBrl = await fetch.Get<Coin>("/json/last/BTC-BRL");
         var usdBrl = await fetch.Get<Coin>("/json/last/USD-BRL");
+
+        int valUsdMaxLastDay = listUsd?.Count > 0 ? int.Parse(listUsd[1].bid ?? "0") : 0;
 
         int valBtcDolar = int.Parse(btcUsd?.BTCUSD?.bid ?? "0");
         int valBtcDolarMin = int.Parse(btcUsd?.BTCUSD?.low ?? "0");
@@ -44,7 +63,7 @@ public partial class MainWindow : Window
         int valBtcRealMax = int.Parse(btcBrl?.BTCBRL?.high ?? "0");
 
         string valDolarReal = usdBrl?.USDBRL?.bid ?? "";
-        if (valBtcDolar > valBtcDolarMin)
+        if (valBtcDolar > valUsdMaxLastDay)
         {
             var color = Color.Parse("#76fb8d");
             btc_dolar.Foreground = new SolidColorBrush(color);
@@ -56,6 +75,8 @@ public partial class MainWindow : Window
             btc_real.Foreground = new SolidColorBrush(Colors.Red);
         }
 
+        btc_dolar_max_day_last.Text = $"{dolarLastDay:N0}$";
+        btc_real_max_day_last.Text = $"{realLastDay:N0}R$";
         btc_dolar.Text = $"$ {valBtcDolar:N0}";
         btc_dolar_max_min.Text = $"Max: {valBtcDolarMax:N0} Min: {valBtcDolarMin:N0}";
 
@@ -81,7 +102,7 @@ public partial class MainWindow : Window
     private const uint WS_EX_APPWINDOW = 0x00040000;   // Janela de aplicativo (aparece no Alt + Tab)
     public void CloseApp_Click(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
-        
+
         Close();  // Fecha a janela
     }
     private void OnPointerEntered(object? sender, PointerEventArgs e)
