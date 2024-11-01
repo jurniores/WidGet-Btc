@@ -62,8 +62,8 @@
                                 <TextBlock  Text="LastDay Dolar" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca"/>
                                 <TextBlock  Text="LastDay Real" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca" />
                                 
-                                <TextBlock x:Name="btc_real_max_day_last" Text="7500$" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
-                                <TextBlock x:Name="btc_dolar_max_day_last" Text="7500R$" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                                <TextBlock x:Name="btc_dolar_max_day_last" Text="7500$" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                                <TextBlock x:Name="btc_real_max_day_last" Text="7500R$" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
                                
                                
                                 

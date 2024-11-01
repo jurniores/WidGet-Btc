@@ -53,8 +53,8 @@ public partial class MainWindow : Window
         listUsd ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-USD/2");
         listBrl ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-BRL/2");
 
-        int dolarLastDay = int.Parse(listBrl?[1].bid ?? "0");
-        int realLastDay = int.Parse(listUsd?[1].bid ?? "0");
+        int dolarLastDay = int.Parse(listUsd?[1].bid ?? "0");
+        int realLastDay = int.Parse(listBrl?[1].bid ?? "0");
 
 
 
