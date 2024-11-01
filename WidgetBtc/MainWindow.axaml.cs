@@ -26,9 +26,21 @@ public partial class MainWindow : Window
 
         var coroutine = new Coroutine(time, GetMethod);
         coroutine.Start();
-
+        UIEvents();
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows)) Opened += (sender, e) => HideFromAltTab();
 
+    }
+    private void UIEvents()
+    {
+        foreach (var borders in stack_panel_borders.Children)
+        {
+            if (borders is Border border)
+            {
+                border.PointerEntered += EventsUI.EventsUI.EnteredBackGroundColor!;
+                border.PointerExited += EventsUI.EventsUI.ExitedBackGroundColor!;
+                border.PointerPressed += EventsUI.EventsUI.RedirectFromSite!;
+            }
+        }
     }
     void Refresh(object sender, Avalonia.Interactivity.RoutedEventArgs e)
     {
@@ -38,8 +50,6 @@ public partial class MainWindow : Window
     }
     private async void GetMethod()
     {
-
-
         listUsd ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-USD/2");
         listBrl ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-BRL/2");
 

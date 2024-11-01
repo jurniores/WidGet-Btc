@@ -37,8 +37,8 @@
                         X
                 </Button>
         </StackPanel>
-        <StackPanel Orientation="Vertical"  HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Center" Width="300">
-                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+        <StackPanel x:Name="stack_panel_borders" Orientation="Vertical"  HorizontalAlignment="Center" Margin="0,35,0,0" VerticalAlignment="Center" Width="300">
+                <Border x:Name="dolar_real_border" Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch"  >
                         <Grid>
                                 <!-- Define duas colunas no Grid -->
                                 <Grid.ColumnDefinitions>
@@ -62,8 +62,8 @@
                                 <TextBlock  Text="LastDay Dolar" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca"/>
                                 <TextBlock  Text="LastDay Real" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#62ffca" />
                                 
-                                <TextBlock x:Name="btc_dolar_max_day_last" Text="7500$" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
-                                <TextBlock x:Name="btc_real_max_day_last" Text="7500R$" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                                <TextBlock x:Name="btc_real_max_day_last" Text="7500$" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
+                                <TextBlock x:Name="btc_dolar_max_day_last" Text="7500R$" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#194f57" />
                                
                                
                                 
@@ -71,7 +71,7 @@
                                
                         </Grid>
                 </Border>
-                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                <Border x:Name="dolar_border" Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
                         <Grid>
                                 <!-- Define duas colunas no Grid -->
                                 <Grid.ColumnDefinitions>
@@ -90,7 +90,7 @@
                                
                         </Grid>
                 </Border>
-                 <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                 <Border x:Name="real_border" Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
                         <Grid>
                                 <!-- Define duas colunas no Grid -->
                                 <Grid.ColumnDefinitions>
@@ -109,7 +109,7 @@
                                
                         </Grid>
                 </Border>
-                <Border Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
+                <Border x:Name="dolar_real_val" Background="#80D3D3D3" CornerRadius="8" Margin="4" HorizontalAlignment="Stretch">
                         <Grid>
                                 <!-- Define duas colunas no Grid -->
                                 <Grid.ColumnDefinitions>
