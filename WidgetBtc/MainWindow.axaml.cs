@@ -96,11 +96,11 @@ public partial class MainWindow : Window
 
             btc_dolar_max_day_last.Text = $"{dolarLastDay[..valBtcDolarMax.IndexOf('.')]}$";
             btc_real_max_day_last.Text = $"{realLastDay[..valBtcDolarMax.IndexOf('.')]}R$";
-            btc_dolar.Text = $"$ {valBtcDolar}";
-            Console.WriteLine(valBtcDolarMax);
+            btc_dolar.Text = $"$ {valBtcDolar[..valBtcDolarMax.IndexOf('.')]}";
+            
             btc_dolar_max_min.Text = $"Max: {valBtcDolarMax[..valBtcDolarMax.IndexOf('.')]} Min: {valBtcDolarMin[..valBtcDolarMax.IndexOf('.')]}";
 
-            btc_real.Text = $"R$ {valBtcReal}";
+            btc_real.Text = $"R$ {valBtcReal[..valBtcDolarMax.IndexOf('.')]}";
             btc_real_max_min.Text = $"Max: {valBtcRealMax} Min: {valBtcRealMin[..valBtcDolarMax.IndexOf('.')]}";
 
             dolar_real.Text = $"Dolar: {valDolarReal[..valBtcDolarMax.IndexOf('.')]}R$";
