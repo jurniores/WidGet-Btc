@@ -6,6 +6,7 @@ using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using Controller;
+using System.Globalization;
 
 namespace WidgetBtc;
 
@@ -50,51 +51,66 @@ public partial class MainWindow : Window
     }
     private async void GetMethod()
     {
-        listUsd ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-USD/2");
-        listBrl ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-BRL/2");
-
-        int dolarLastDay = int.Parse(listUsd?[1].bid ?? "0");
-        int realLastDay = int.Parse(listBrl?[1].bid ?? "0");
-
-
-
-        var btcUsd = await fetch.Get<Coin>("/json/last/BTC-USD");
-        var btcBrl = await fetch.Get<Coin>("/json/last/BTC-BRL");
-        var usdBrl = await fetch.Get<Coin>("/json/last/USD-BRL");
-
-        int valUsdMaxLastDay = listUsd?.Count > 0 ? int.Parse(listUsd[1].bid ?? "0") : 0;
-
-        int valBtcDolar = int.Parse(btcUsd?.BTCUSD?.bid ?? "0");
-        int valBtcDolarMin = int.Parse(btcUsd?.BTCUSD?.low ?? "0");
-        int valBtcDolarMax = int.Parse(btcUsd?.BTCUSD?.high ?? "0");
-
-        int valBtcReal = int.Parse(btcBrl?.BTCBRL?.bid ?? "0");
-        int valBtcRealMin = int.Parse(btcBrl?.BTCBRL?.low ?? "0");
-        int valBtcRealMax = int.Parse(btcBrl?.BTCBRL?.high ?? "0");
-
-        string valDolarReal = usdBrl?.USDBRL?.bid ?? "";
-        if (valBtcDolar > valUsdMaxLastDay)
+        try
         {
-            var color = Color.Parse("#76fb8d");
-            btc_dolar.Foreground = new SolidColorBrush(color);
-            btc_real.Foreground = new SolidColorBrush(color);
+            listUsd ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-USD/2");
+            listBrl ??= await fetch.GetList<Coin.Money>("/json/daily/BTC-BRL/2");
+
+            listUsd?.ForEach(e =>
+            {
+                Console.WriteLine(listUsd?[1].bid);
+            });
+
+            string dolarLastDay = listUsd?[1].bid ?? "0";
+            string realLastDay = listBrl?[1].bid ?? "0";
+
+
+
+            var btcUsd = await fetch.Get<Coin>("/json/last/BTC-USD");
+            var btcBrl = await fetch.Get<Coin>("/json/last/BTC-BRL");
+            var usdBrl = await fetch.Get<Coin>("/json/last/USD-BRL");
+
+            string? valUsdMaxLastDay = listUsd?.Count > 0 ? listUsd[1].bid : "0";
+
+            string valBtcDolar = btcUsd?.BTCUSD?.bid ?? "0";
+            string valBtcDolarMin = btcUsd?.BTCUSD?.low ?? "0";
+            string valBtcDolarMax = btcUsd?.BTCUSD?.high ?? "0";
+
+            string valBtcReal = btcBrl?.BTCBRL?.bid ?? "0";
+            string valBtcRealMin = btcBrl?.BTCBRL?.low ?? "0";
+            string valBtcRealMax = btcBrl?.BTCBRL?.high ?? "0";
+
+            string valDolarReal = usdBrl?.USDBRL?.bid ?? "";
+
+            if (float.Parse(valBtcDolar) > float.Parse(valUsdMaxLastDay!))
+            {
+                var color = Color.Parse("#76fb8d");
+                btc_dolar.Foreground = new SolidColorBrush(color);
+                btc_real.Foreground = new SolidColorBrush(color);
+            }
+            else
+            {
+                btc_dolar.Foreground = new SolidColorBrush(Colors.Red);
+                btc_real.Foreground = new SolidColorBrush(Colors.Red);
+            }
+
+            btc_dolar_max_day_last.Text = $"{dolarLastDay[..valBtcDolarMax.IndexOf('.')]}$";
+            btc_real_max_day_last.Text = $"{realLastDay[..valBtcDolarMax.IndexOf('.')]}R$";
+            btc_dolar.Text = $"$ {valBtcDolar}";
+            Console.WriteLine(valBtcDolarMax);
+            btc_dolar_max_min.Text = $"Max: {valBtcDolarMax[..valBtcDolarMax.IndexOf('.')]} Min: {valBtcDolarMin[..valBtcDolarMax.IndexOf('.')]}";
+
+            btc_real.Text = $"R$ {valBtcReal}";
+            btc_real_max_min.Text = $"Max: {valBtcRealMax} Min: {valBtcRealMin[..valBtcDolarMax.IndexOf('.')]}";
+
+            dolar_real.Text = $"Dolar: {valDolarReal[..valBtcDolarMax.IndexOf('.')]}R$";
+            bounce = false;
         }
-        else
+        catch (Exception e)
         {
-            btc_dolar.Foreground = new SolidColorBrush(Colors.Red);
-            btc_real.Foreground = new SolidColorBrush(Colors.Red);
+            Console.WriteLine(e);
         }
 
-        btc_dolar_max_day_last.Text = $"{dolarLastDay:N0}$";
-        btc_real_max_day_last.Text = $"{realLastDay:N0}R$";
-        btc_dolar.Text = $"$ {valBtcDolar:N0}";
-        btc_dolar_max_min.Text = $"Max: {valBtcDolarMax:N0} Min: {valBtcDolarMin:N0}";
-
-        btc_real.Text = $"R$ {valBtcReal:N0}";
-        btc_real_max_min.Text = $"Max: {valBtcRealMax:N0} Min: {valBtcRealMin:N0}";
-
-        dolar_real.Text = $"Dolar: {valDolarReal}R$";
-        bounce = false;
     }
 
 
